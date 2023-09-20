@@ -3,7 +3,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSession();
+builder.Services.AddSession(options => {
+    options.IdleTimeout = TimeSpan.FromSeconds(10);//You can set Time   
+});
 
 var app = builder.Build();
 
